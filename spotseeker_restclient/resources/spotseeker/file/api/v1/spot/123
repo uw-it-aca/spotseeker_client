@@ -1,0 +1,53 @@
+{
+    "id": "123",
+    "uri": "/api/v1/spot/123",
+    "name": "Test Spot",
+    "type": ["study_room", "cafe"],
+    "meta_type": ["study", "food"],
+    "location": {
+        "longitude": 1.34,
+        "latitude": 3.60,
+        "height_from_sea_level": 0.10,
+        "building_name": "Test Building",
+        "floor": 0,
+        "room_number": "456",
+        "description": "This is a building"
+    },
+    "capacity": 0,
+    "display_access_restrictions": "none",
+    "images": [
+                {
+                    "id":"1",
+                    "url":"/api/v1/spot/123/image/1",
+                    "content-type":"image/jpeg",
+                    "width":0,
+                    "height":0,
+                    "creation_date":"Sun, 06 Nov 1994 08:49:37 GMT",
+                    "modification_date":"Mon, 07 Nov 1994 01:49:37 GMT",
+                    "upload_user":"user name",
+                    "upload_application":"application name",
+                    "thumbnail_root":"/api/v1/spot/123/image/1/thumb",
+                    "description": "Information about the image",
+                    "display_index": 0
+                }
+            ],
+    "available_hours":{
+        "monday": [ ["00:00", "10:00" ], ["11:00", "14:00"] ],
+        "tuesday": [ ["11:00", "14:00" ] ],
+        "wednesday": [ ["11:00", "14:00"] ],
+        "thursday": [ ["11:00", "14:00"] ],
+        "friday": [ ["11:00", "14:00"] ],
+        "saturday": [],
+        "sunday": [ ["11:00", "14:00"] ]
+    },
+    "organization": "Test Org",
+    "manager": "Mr Test Org",
+    "extended_info": {
+        "whiteboards": true,
+        "field2": 0,
+        "field3": 0.00
+    },
+    "last_modified": "2012-07-13T05:00:00+00:00",
+    "etag": "686897696a7c876b7e",
+    "external_id": "asd123"
+}
