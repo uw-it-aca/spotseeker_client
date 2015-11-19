@@ -1,7 +1,7 @@
 from spotseeker_restclient.dao import SPOTSEEKER_DAO
 from spotseeker_restclient.exceptions import DataFailureException
 from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
-    SpotExtendedInfo, SpotImage, SpotMetaType, SpotType
+    SpotExtendedInfo, SpotImage, SpotType
 import json
 from django.utils.dateparse import parse_datetime, parse_time
 

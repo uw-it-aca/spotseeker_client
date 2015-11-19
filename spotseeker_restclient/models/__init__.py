@@ -1,8 +1,6 @@
 from django.db import models
 import pickle
 from base64 import b64encode, b64decode
-from spotseeker_restclient.models.spot import Spot, SpotType, SpotMetaType, \
-    SpotImage, SpotExtendedInfo, SpotAvailableHours
 
 
 class CacheEntry(models.Model):
