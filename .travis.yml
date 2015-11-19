@@ -1,0 +1,21 @@
+sudo: false
+language: python
+python:
+  - "2.7"
+  - "2.6"
+install: python setup.py -q install
+before_script:
+  - pip install coverage
+  - pip install python-coveralls
+  - pip install pep8
+  - cp travis-ci/manage.py manage.py
+  - python manage.py syncdb --noinput
+script:
+  - pep8 spotseeker_restclient/ --exclude=migrations
+  - coverage run --source=spotseeker_restclient/ --omit=spotseeker_restclient/migrations/* manage.py test spotseeker_restclient
+after_script:
+  - coveralls
+notifications:
+  webhooks:
+      urls:
+        - https://yarn.cac.washington.edu/rest/botalyst/v1/travis-ci
