@@ -2,6 +2,7 @@
 Contains the custom exceptions used by the restclient.
 """
 
+
 class DataFailureException(Exception):
     """
     This exception means there was an error fetching content

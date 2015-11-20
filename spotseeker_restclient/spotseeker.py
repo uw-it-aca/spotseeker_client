@@ -59,7 +59,6 @@ class Spotseeker(object):
             spot_types.append(SpotType(name=spot_type))
         return spot_types
 
-
     def _spot_availability_from_data(self, avaliblity_data):
         availability = []
 
@@ -85,7 +84,8 @@ class Spotseeker(object):
             spot_image.width = image["width"]
             spot_image.height = image["height"]
             spot_image.creation_date = parse_datetime(image["creation_date"])
-            spot_image.modification_date = parse_datetime(image["modification_date"])
+            spot_image.modification_date = \
+                parse_datetime(image["modification_date"])
             spot_image.upload_user = image["upload_user"]
             spot_image.upload_application = image["upload_application"]
             spot_image.thumbnail_root = image["thumbnail_root"]
@@ -93,7 +93,6 @@ class Spotseeker(object):
             images.append(spot_image)
 
         return images
-
 
     def _extended_info_from_data(self, info_data):
         extended_info = []
