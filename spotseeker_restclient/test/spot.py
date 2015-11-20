@@ -45,4 +45,3 @@ class SpotseekerTest(TestCase):
             self.assertEqual(spot_data.images[0].display_index, 0)
 
             self.assertEqual(len(spot_data.spot_availability), 7)
-            self.assertEqual(spot_data.spot_availability[0], )

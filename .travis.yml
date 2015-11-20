@@ -9,7 +9,7 @@ before_script:
   - pip install python-coveralls
   - pip install pep8
   - cp travis-ci/manage.py manage.py
-  - python manage.py syncdb --noinput
+  - python manage.py migrate --noinput
 script:
   - pep8 spotseeker_restclient/ --exclude=migrations
   - coverage run --source=spotseeker_restclient/ --omit=spotseeker_restclient/migrations/* manage.py test spotseeker_restclient
