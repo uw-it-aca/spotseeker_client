@@ -13,7 +13,7 @@ setup(
     include_package_data=True,
     install_requires = [
         'setuptools',
-        'django',
+        'Django<=1.8.6',
         'urllib3',
     ],
     license='Apache License, Version 2.0',  # example license
