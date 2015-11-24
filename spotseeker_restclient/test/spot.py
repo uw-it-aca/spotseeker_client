@@ -60,6 +60,5 @@ class SpotseekerTest(TestCase):
 
     def test_bad_spot(self):
         spot_client = Spotseeker()
-        self.assertRaises(DataFailureException, spot_client.get_spot_by_id, 999)
-
-
+        self.assertRaises(DataFailureException,
+                          spot_client.get_spot_by_id, 999)
