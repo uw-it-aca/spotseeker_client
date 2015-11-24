@@ -24,8 +24,6 @@ class SpotseekerTest(TestCase):
         self.assertEqual(spot_data.building_name, "Test Building")
         self.assertEqual(spot_data.floor, 0)
         self.assertEqual(spot_data.room_number, "456")
-        self.assertEqual(spot_data.building_description,
-                         "This is a building")
         self.assertEqual(spot_data.capacity, 0)
         self.assertEqual(spot_data.display_access_restrictions, "none")
         self.assertEqual(spot_data.organization, "Test Org")

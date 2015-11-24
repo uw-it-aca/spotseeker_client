@@ -10,6 +10,16 @@ class File(object):
 
 
 class Live(object):
-    def getURL(self, url, headers):
+    pool = None
 
-        return ""
+    def getURL(self, url, headers):
+        if Live.pool is None:
+            Live.pool = self._get_pool()
+
+        return get_live_url(Live.pool, 'GET',
+                            settings.RESTCLIENT_SPOTSEEKER_HOST,
+                            url, headers=headers,
+                            service_name='spotseeker')
+
+    def _get_pool(self):
+        return get_con_pool(settings.RESTCLIENT_SPOTSEEKER_HOST)
