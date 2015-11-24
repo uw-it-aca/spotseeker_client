@@ -1,5 +1,6 @@
 from django.test import TestCase
 from spotseeker_restclient.spotseeker import Spotseeker
+from spotseeker_restclient.exceptions import DataFailureException
 from django.utils.dateparse import parse_datetime, parse_time
 from django.test.utils import override_settings
 
@@ -56,3 +57,9 @@ class SpotseekerTest(TestCase):
         self.assertEqual(spot_data.images[0].display_index, 0)
 
         self.assertEqual(len(spot_data.spot_availability), 7)
+
+    def test_bad_spot(self):
+        spot_client = Spotseeker()
+        self.assertRaises(DataFailureException, spot_client.get_spot_by_id, 999)
+
+
