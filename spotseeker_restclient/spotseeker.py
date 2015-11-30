@@ -4,6 +4,7 @@ from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
     SpotExtendedInfo, SpotImage, SpotType
 import json
 from django.utils.dateparse import parse_datetime, parse_time
+from urllib import urlencode
 
 
 class Spotseeker(object):
@@ -17,10 +18,29 @@ class Spotseeker(object):
         if response.status != 200:
             raise DataFailureException(url, response.status, response.data)
 
-        return self._spot_from_json(response.data)
+        return self._spot_from_data(json.loads(response.data))
 
-    def _spot_from_json(self, data):
-        spot_data = json.loads(data)
+    def search_spots(self, **kwargs):
+        """
+        Returns a list of spots matching the passed parameters.
+        """
+        dao = SPOTSEEKER_DAO()
+        url = "/api/v1/spot?" + urlencode(kwargs)
+
+        response = dao.getURL(url, {})
+
+        if response.status != 200:
+            raise DataFailureException(url, response.status, response.data)
+
+        results = json.loads(response.data)
+
+        spots = []
+        for res in results:
+            spots.append(self._spot_from_data(res))
+
+        return spots
+
+    def _spot_from_data(self, spot_data):
         spot = Spot()
 
         spot.spot_id = spot_data["id"]
