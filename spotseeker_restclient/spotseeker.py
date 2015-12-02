@@ -24,6 +24,8 @@ class Spotseeker(object):
         """
         Returns a list of spots matching the passed parameters.
         """
+
+        kwargs = dict((k.lower(), v.lower()) for k, v in kwargs.iteritems())
         dao = SPOTSEEKER_DAO()
         url = "/api/v1/spot?" + urlencode(kwargs)
 
@@ -51,6 +53,7 @@ class Spotseeker(object):
         spot.height_from_sea_level = \
             spot_data["location"]["height_from_sea_level"]
         spot.building_name = spot_data["location"]["building_name"]
+        spot.building_description = spot_data["location"]["description"]
         spot.floor = spot_data["location"]["floor"]
         spot.room_number = spot_data["location"]["room_number"]
         spot.capacity = spot_data["capacity"]

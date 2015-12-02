@@ -1,0 +1,160 @@
+[{
+    "id": "1",
+    "uri": "/api/v1/spot/1",
+    "name": "Test Cafe",
+    "type": ["cafe"],
+    "meta_type": ["food"],
+    "location": {
+        "longitude": 122.3079563,
+        "latitude": 47.6551526,
+        "height_from_sea_level": 0.10,
+        "building_name": "Cafe Building",
+        "floor": 0,
+        "room_number": "456",
+        "description": "This is a building"
+    },
+    "capacity": 0,
+    "display_access_restrictions": "none",
+    "images": [
+                {
+                    "id":"1",
+                    "url":"/api/v1/spot/1/image/1",
+                    "content-type":"image/jpeg",
+                    "width":0,
+                    "height":0,
+                    "creation_date":"Sun, 06 Nov 1994 08:49:37 GMT",
+                    "modification_date":"Mon, 07 Nov 1994 01:49:37 GMT",
+                    "upload_user":"user name",
+                    "upload_application":"application name",
+                    "thumbnail_root":"/api/v1/spot/123/image/1/thumb",
+                    "description": "Information about the image",
+                    "display_index": 0
+                }
+            ],
+    "available_hours":{
+        "monday": [ ["00:00", "10:00" ], ["11:00", "19:00"] ],
+        "tuesday": [ ["11:00", "19:00" ] ],
+        "wednesday": [ ["11:00", "19:00"] ],
+        "thursday": [ ["11:00", "19:00"] ],
+        "friday": [ ["11:00", "19:00"] ],
+        "saturday": [],
+        "sunday": [ ["11:00", "19:00"] ]
+    },
+    "organization": "Test Org",
+    "manager": "Mr Test Org",
+    "extended_info": {
+        "whiteboards": true,
+        "field2": 0,
+        "field3": 0.00
+    },
+    "last_modified": "2012-07-13T05:00:00+00:00",
+    "etag": "686897696a7c876b7e",
+    "external_id": "asd123"
+},
+{
+    "id": "2",
+    "uri": "/api/v1/spot/2",
+    "name": "It's A Market",
+    "type": ["market"],
+    "meta_type": ["food"],
+    "location": {
+        "longitude": -122.30853074,
+        "latitude": 47.6558366,
+        "height_from_sea_level": 0.10,
+        "building_name": "The Market",
+        "floor": 0,
+        "room_number": "456",
+        "description": "This is a building"
+    },
+    "capacity": 0,
+    "display_access_restrictions": "none",
+    "images": [
+                {
+                    "id":"1",
+                    "url":"/api/v1/spot/2/image/1",
+                    "content-type":"image/jpeg",
+                    "width":0,
+                    "height":0,
+                    "creation_date":"Sun, 06 Nov 1994 08:49:37 GMT",
+                    "modification_date":"Mon, 07 Nov 1994 01:49:37 GMT",
+                    "upload_user":"user name",
+                    "upload_application":"application name",
+                    "thumbnail_root":"/api/v1/spot/2/image/1/thumb",
+                    "description": "Information about the image",
+                    "display_index": 0
+                }
+            ],
+    "available_hours":{
+        "monday": [ ["00:00", "10:00" ], ["11:00", "21:00"] ],
+        "tuesday": [ ["11:00", "21:00" ] ],
+        "wednesday": [ ["11:00", "21:00"] ],
+        "thursday": [ ["11:00", "21:00"] ],
+        "friday": [ ["11:00", "21:00"] ],
+        "saturday": [],
+        "sunday": [ ["11:00", "21:00"] ]
+    },
+    "organization": "Test Org",
+    "manager": "Mr Test Org",
+    "extended_info": {
+        "whiteboards": true,
+        "field2": 0,
+        "field3": 0.00
+    },
+    "last_modified": "2012-07-13T05:00:00+00:00",
+    "etag": "686897696a7c876b7e",
+    "external_id": "asd123"
+},
+{
+    "id": "3",
+    "uri": "/api/v1/spot/3",
+    "name": "Truck of Food",
+    "type": ["food_truck"],
+    "meta_type": ["food"],
+    "location": {
+        "longitude": -122.3080857,
+        "latitude": 47.6539295,
+        "height_from_sea_level": 0.10,
+        "building_name": "Test Building",
+        "floor": 0,
+        "room_number": "456",
+        "description": "This is a building"
+    },
+    "capacity": 0,
+    "display_access_restrictions": "none",
+    "images": [
+                {
+                    "id":"1",
+                    "url":"/api/v1/spot/3/image/1",
+                    "content-type":"image/jpeg",
+                    "width":0,
+                    "height":0,
+                    "creation_date":"Sun, 06 Nov 1994 08:49:37 GMT",
+                    "modification_date":"Mon, 07 Nov 1994 01:49:37 GMT",
+                    "upload_user":"user name",
+                    "upload_application":"application name",
+                    "thumbnail_root":"/api/v1/spot/3/image/1/thumb",
+                    "description": "Information about the image",
+                    "display_index": 0
+                }
+            ],
+    "available_hours":{
+        "monday": [ ["00:00", "10:00" ], ["11:00", "14:00"] ],
+        "tuesday": [ ["11:00", "14:00" ] ],
+        "wednesday": [ ["11:00", "14:00"] ],
+        "thursday": [ ["11:00", "14:00"] ],
+        "friday": [ ["11:00", "14:00"] ],
+        "saturday": [],
+        "sunday": [ ["11:00", "14:00"] ]
+    },
+    "organization": "Test Org",
+    "manager": "Mr Test Org",
+    "extended_info": {
+        "whiteboards": true,
+        "field2": 0,
+        "field3": 0.00
+    },
+    "last_modified": "2012-07-13T05:00:00+00:00",
+    "etag": "686897696a7c876b7e",
+    "external_id": "asd123"
+}
+]
