@@ -9,11 +9,11 @@
         "latitude": 47.6551526,
         "height_from_sea_level": 0.10,
         "building_name": "Cafe Building",
-        "floor": 0,
+        "floor": 1,
         "room_number": "456",
         "description": "This is a building"
     },
-    "capacity": 0,
+    "capacity": 110,
     "display_access_restrictions": "none",
     "images": [
                 {
