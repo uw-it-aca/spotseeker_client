@@ -45,7 +45,9 @@
     "extended_info": {
         "whiteboards": true,
         "field2": 0,
-        "field3": 0.00
+        "field3": 0.00,
+        "food_served": "Tacos",
+        "open_period": "all day"
     },
     "last_modified": "2012-07-13T05:00:00+00:00",
     "etag": "686897696a7c876b7e",
