@@ -5,7 +5,7 @@
     "type": ["cafe"],
     "meta_type": ["food"],
     "location": {
-        "longitude": 122.3079563,
+        "longitude": -122.3079563,
         "latitude": 47.6551526,
         "height_from_sea_level": 0.10,
         "building_name": "Cafe Building",
