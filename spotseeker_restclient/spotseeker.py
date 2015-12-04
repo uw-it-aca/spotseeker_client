@@ -87,7 +87,7 @@ class Spotseeker(object):
         for day in avaliblity_data:
             for hours in avaliblity_data[day]:
                 available_hours = SpotAvailableHours()
-                # available_hours.day = day
+                available_hours.day = day
                 available_hours.start_time = parse_time(hours[0])
                 available_hours.end_time = parse_time(hours[1])
                 availability.append(available_hours)
