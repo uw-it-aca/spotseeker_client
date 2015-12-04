@@ -43,11 +43,61 @@
     "organization": "Test Org",
     "manager": "Mr Test Org",
     "extended_info": {
-        "whiteboards": true,
-        "field2": 0,
-        "field3": 0.00,
-        "food_served": "ingredients",
-        "open_period": "all day"
+        "app_type" : "food",
+        "campus" : "seattle",
+        "hours_notes" : "",
+        "access_notes" : "",
+
+
+        "s_menu_url" : "www.yelp.com",
+        "s_website_url" : "www.uw.edu/food",
+        "s_contact_phone" : "2066164000",
+
+        "s_has_alert" : false,
+        "s_alert_notes" : "",
+
+        "s_has_reservation" : false,
+        "s_reservation_notes" : "",
+
+        "s_has_coupon" : false,
+        "s_coupon_expiration" : "",
+        "s_coupon_url" : "",
+
+        "s_cuisine_american" : false,
+        "s_cuisine_bbq" : false,
+        "s_cuisine_chinese" : false,
+        "s_cuisine_hawaiian" : true,
+        "s_cuisine_indian" : false,
+        "s_cuisine_italian" : false,
+        "s_cuisine_japanese" : true,
+        "s_cuisine_korean" : false,
+        "s_cuisine_mexican" : false,
+        "s_cuisine_vietnamese" : false,
+
+        "s_cuisine_light_lunch" : false,
+
+        "s_food_appetizers" : false,
+        "s_food_burgers" : false,
+        "s_food_entrees" : false,
+        "s_food_espresso" : true,
+        "s_food_pasta" : false,
+        "s_food_pizza" : true,
+        "s_food_salads" : false,
+        "s_food_sandwiches" : true,
+        "s_food_smoothies" : true,
+        "s_food_sushi" : true,
+        "s_food_tacos" : true,
+
+        "s_pay_cash" : false,
+        "s_pay_visa" : false,
+        "s_pay_mastercard" : false,
+        "s_pay_husky" : true,
+        "s_pay_dining" : true,
+
+        "s_open_breakfast" : false,
+        "s_open_lunch" : true,
+        "s_open_dinner" : true,
+        "s_open_late_night" : true
     },
     "last_modified": "2012-07-13T05:00:00+00:00",
     "etag": "686897696a7c876b7e",

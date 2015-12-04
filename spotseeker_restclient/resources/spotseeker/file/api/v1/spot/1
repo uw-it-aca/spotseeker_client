@@ -59,7 +59,7 @@
         "s_has_reservation" : true,
         "s_reservation_notes" : "For < 48 hours out",
 
-        "s_has_coupon" : "true",
+        "s_has_coupon" : true,
         "s_coupon_expiration" : "9/11",
         "s_coupon_url" : "www.uw.com/food/deals",
 
