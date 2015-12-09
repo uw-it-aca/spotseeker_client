@@ -28,7 +28,7 @@ class DAO_BASE(object):
 
 class MY_DAO(DAO_BASE):
     def _getCache(self):
-        return self._getModule('RESTCLIENT_DAO_CACHE_CLASS', NoCache)
+        return self._getModule('DAO_CACHE_CLASS', NoCache)
 
     def _getURL(self, service, url, headers):
         dao = self._getDAO()
@@ -71,5 +71,5 @@ class SPOTSEEKER_DAO(MY_DAO):
         return self._getURL('spotseeker', url, headers)
 
     def _getDAO(self):
-        return self._getModule('RESTCLIENT_SPOTSEEKER_DAO_CLASS',
+        return self._getModule('SPOTSEEKER_DAO_CLASS',
                                SpotseekerFile)

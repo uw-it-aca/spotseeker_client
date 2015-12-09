@@ -13,12 +13,12 @@ class Spotseeker(object):
         url = "/api/v1/spot/%s" % spot_id
         dao = SPOTSEEKER_DAO()
 
-        response = dao.getURL(url, {})
+        resp, content = dao.getURL(url, {})
 
-        if response.status != 200:
-            raise DataFailureException(url, response.status, response.data)
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
 
-        return self._spot_from_data(json.loads(response.data))
+        return self._spot_from_data(json.loads(content))
 
     def search_spots(self, **kwargs):
         """
@@ -53,7 +53,7 @@ class Spotseeker(object):
         spot.height_from_sea_level = \
             spot_data["location"]["height_from_sea_level"]
         spot.building_name = spot_data["location"]["building_name"]
-        spot.building_description = spot_data["location"]["description"]
+        spot.building_description = spot_data["location"].get("description", None)
         spot.floor = spot_data["location"]["floor"]
         spot.room_number = spot_data["location"]["room_number"]
         spot.capacity = spot_data["capacity"]
