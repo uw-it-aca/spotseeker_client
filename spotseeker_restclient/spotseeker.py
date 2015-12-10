@@ -2,6 +2,7 @@ from spotseeker_restclient.dao import SPOTSEEKER_DAO
 from spotseeker_restclient.exceptions import DataFailureException
 from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
     SpotExtendedInfo, SpotImage, SpotType
+from spotseeker_restclient.dao_implementation.spotseeker import File
 import json
 from django.utils.dateparse import parse_datetime, parse_time
 from urllib import urlencode
@@ -12,8 +13,11 @@ class Spotseeker(object):
     def get_spot_by_id(self, spot_id):
         url = "/api/v1/spot/%s" % spot_id
         dao = SPOTSEEKER_DAO()
-
-        resp, content = dao.getURL(url, {})
+        if isinstance(dao._getDAO(), File):
+            resp = dao.getURL(url, {})
+            content = resp.data
+        else:
+            resp, content = dao.getURL(url, {})
 
         if resp.status != 200:
             raise DataFailureException(url, resp.status, content)
