@@ -57,7 +57,8 @@ class Spotseeker(object):
         spot.height_from_sea_level = \
             spot_data["location"]["height_from_sea_level"]
         spot.building_name = spot_data["location"]["building_name"]
-        spot.building_description = spot_data["location"].get("description", None)
+        spot.building_description = spot_data["location"].get("description",
+                                                              None)
         spot.floor = spot_data["location"]["floor"]
         spot.room_number = spot_data["location"]["room_number"]
         spot.capacity = spot_data["capacity"]
