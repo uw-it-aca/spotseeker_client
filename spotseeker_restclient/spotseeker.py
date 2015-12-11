@@ -24,21 +24,23 @@ class Spotseeker(object):
 
         return self._spot_from_data(json.loads(content))
 
-    def search_spots(self, **kwargs):
+    def search_spots(self, query_tuple):
         """
         Returns a list of spots matching the passed parameters.
         """
 
-        kwargs = dict((k.lower(), v.lower()) for k, v in kwargs.iteritems())
         dao = SPOTSEEKER_DAO()
-        url = "/api/v1/spot?" + urlencode(kwargs)
+        url = "/api/v1/spot?" + urlencode(query_tuple)
+        if isinstance(dao._getDAO(), File):
+            resp = dao.getURL(url, {})
+            content = resp.data
+        else:
+            resp, content = dao.getURL(url, {})
 
-        response = dao.getURL(url, {})
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
 
-        if response.status != 200:
-            raise DataFailureException(url, response.status, response.data)
-
-        results = json.loads(response.data)
+        results = json.loads(content)
 
         spots = []
         for res in results:
