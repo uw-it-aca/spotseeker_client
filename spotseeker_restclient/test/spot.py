@@ -7,7 +7,7 @@ from django.test.utils import override_settings
 DAO = "spotseeker_restclient.dao_implementation.spotseeker.File"
 
 
-@override_settings(RESTCLIENT_SPOTSEEKER_DAO_CLASS=DAO)
+@override_settings(SPOTSEEKER_DAO_CLASS=DAO)
 class SpotseekerTest(TestCase):
 
     def test_get_spot(self):
