@@ -62,6 +62,14 @@ class SpotseekerTest(TestCase):
                           spot_client.get_spot_by_id, 999)
 
     def test_search_spots(self):
+        """ Tests search_spots function with mock data provided in the
+        file named : spot?limit=5&center_latitude=47.653811&
+                    center_longitude=-122.307815&distance=100000&
+                    fuzzy_hours_start=Tuesday%2C05%3A00&fuzzy_hours_end=
+                    Tuesday%2C11%3A00&extended_info%3Aapp_type=food
+        tests mock data is accessible if filename matches order of query_tuple
+        passed. 
+        """
         spot_client = Spotseeker()
         query_tuple = [
                     ('limit', 5), ('center_latitude', u'47.653811'),
