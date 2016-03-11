@@ -70,7 +70,7 @@ class SpotseekerTest(TestCase):
             tests mock data is accessible if filename matches order
             of query_tuple passed.
         """
-        
+
         spot_client = Spotseeker()
         query_tuple = [
                     ('limit', 5), ('center_latitude', u'47.653811'),
