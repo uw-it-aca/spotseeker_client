@@ -1,0 +1,410 @@
+[
+   {
+      "extended_info":{
+         "s_pay_cash":"true",
+         "s_phone":"206-543-7977",
+         "s_pay_husky":"true",
+         "app_type":"food",
+         "s_food_espresso":"true",
+         "s_pay_mastercard":"true",
+         "s_pay_dining":"true",
+         "location_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
+         "s_cuisine_american":"true",
+         "s_website_url":"https://www.hfs.washington.edu/espresso/",
+         "owner":"Housing and Food Services (HFS)",
+         "campus":"seattle",
+         "s_pay_visa":"true"
+      },
+      "manager":"Test Manager",
+      "last_modified":"2012-07-13T05:00:00+00:00",
+      "images": [
+                  {
+                      "id":"1",
+                      "url":"/api/v1/spot/123/image/1",
+                      "content-type":"image/jpeg",
+                      "width":0,
+                      "height":0,
+                      "creation_date":"Sun, 06 Nov 1994 08:49:37 GMT",
+                      "modification_date":"Mon, 07 Nov 1994 01:49:37 GMT",
+                      "upload_user":"user name",
+                      "upload_application":"application name",
+                      "thumbnail_root":"/api/v1/spot/123/image/1/thumb",
+                      "description": "Information about the image",
+                      "display_index": 0
+                  }
+              ],
+      "display_access_restrictions":"",
+      "id":40,
+      "capacity":0,
+      "name":"TestSpot1",
+      "external_id":null,
+      "uri":"/api/v1/spot/40",
+      "available_hours":{
+         "monday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "tuesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "friday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "wednesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "thursday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "sunday":[
+
+         ],
+         "saturday":[
+
+         ]
+      },
+      "etag":"123456789",
+      "location":{
+         "floor":"",
+         "height_from_sea_level":0.10,
+         "room_number":"",
+         "longitude":-12,
+         "latitude":47,
+         "building_name":"TestBuilding"
+      },
+      "organization":"Test Org",
+      "type":[
+
+      ]
+   },
+   {
+      "extended_info":{
+         "s_pay_cash":"true",
+         "s_phone":"206-221-6651",
+         "s_pay_husky":"true",
+         "app_type":"food",
+         "s_food_espresso":"true",
+         "s_pay_mastercard":"true",
+         "s_pay_dining":"true",
+         "location_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
+         "s_cuisine_american":"true",
+         "s_website_url":"https://www.hfs.washington.edu/espresso/",
+         "owner":"Housing and Food Services (HFS)",
+         "campus":"seattle",
+         "s_pay_visa":"true"
+      },
+      "manager":"",
+      "last_modified":"2015-12-09T00:32:45.017650+00:00",
+      "images":[
+
+      ],
+      "display_access_restrictions":"",
+      "id":17,
+      "capacity":null,
+      "name":"Mary Gates Hall Espresso",
+      "external_id":null,
+      "uri":"/api/v1/spot/17",
+      "available_hours":{
+         "monday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "tuesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "friday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "wednesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "thursday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "sunday":[
+
+         ],
+         "saturday":[
+
+         ]
+      },
+      "etag":"696e626e1d42fdbc97a3a4bfbe96c63e8047a834",
+      "location":{
+         "floor":"",
+         "height_from_sea_level":null,
+         "room_number":"",
+         "longitude":-122.307733,
+         "latitude":47.654591,
+         "building_name":"Mary Gates Hall (MGH)"
+      },
+      "organization":"",
+      "type":[
+
+      ]
+   },
+   {
+      "extended_info":{
+         "s_pay_cash":"true",
+         "s_phone":"206-616-3327",
+         "s_pay_husky":"true",
+         "app_type":"food",
+         "s_food_espresso":"true",
+         "s_pay_mastercard":"true",
+         "s_pay_dining":"true",
+         "location_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
+         "s_cuisine_american":"true",
+         "s_website_url":"https://www.hfs.washington.edu/espresso/",
+         "owner":"Housing and Food Services (HFS)",
+         "campus":"seattle",
+         "s_pay_visa":"true"
+      },
+      "manager":"",
+      "last_modified":"2012-07-13T05:00:00+00:00",
+      "images":[
+
+      ],
+      "display_access_restrictions":"",
+      "id":36,
+      "capacity":null,
+      "name":"Suzzallo Espresso",
+      "external_id":null,
+      "uri":"/api/v1/spot/36",
+      "available_hours":{
+         "monday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "tuesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "friday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "wednesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "thursday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "sunday":[
+
+         ],
+         "saturday":[
+
+         ]
+      },
+      "etag":"b6cd80cd5edf7f58ffb2b8cbc1211fa72521e080",
+      "location":{
+         "floor":"",
+         "height_from_sea_level":null,
+         "room_number":"",
+         "longitude":-122.308667,
+         "latitude":47.65582,
+         "building_name":"Suzzallo Library (SUZ)"
+      },
+      "organization":"",
+      "type":[
+
+      ]
+   },
+   {
+      "extended_info":{
+         "s_pay_cash":"true",
+         "s_phone":"206-616-8860",
+         "s_pay_husky":"true",
+         "app_type":"food",
+         "s_food_espresso":"true",
+         "s_pay_mastercard":"true",
+         "s_pay_dining":"true",
+         "location_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
+         "s_cuisine_american":"true",
+         "s_website_url":"https://www.hfs.washington.edu/espresso/",
+         "owner":"Housing and Food Services (HFS)",
+         "campus":"seattle",
+         "s_pay_visa":"true"
+      },
+      "manager":"",
+      "last_modified":"2015-12-09T00:32:50.128144+00:00",
+      "images":[
+
+      ],
+      "display_access_restrictions":"",
+      "id":29,
+      "capacity":null,
+      "name":"Reboot",
+      "external_id":null,
+      "uri":"/api/v1/spot/29",
+      "available_hours":{
+         "monday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "tuesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "friday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "wednesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "thursday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "sunday":[
+
+         ],
+         "saturday":[
+
+         ]
+      },
+      "etag":"71991d0a4ad1be170b8d571ff2cc9adbb1018eea",
+      "location":{
+         "floor":"",
+         "height_from_sea_level":null,
+         "room_number":"",
+         "longitude":-122.30592,
+         "latitude":47.653262,
+         "building_name":"Computer Science and Engineering Building (CSE)"
+      },
+      "organization":"",
+      "type":[
+
+      ]
+   },
+   {
+      "extended_info":{
+         "s_pay_cash":"true",
+         "s_phone":"206-616-2739",
+         "s_pay_husky":"true",
+         "app_type":"food",
+         "s_food_espresso":"true",
+         "s_pay_mastercard":"true",
+         "s_pay_dining":"true",
+         "location_description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
+         "s_cuisine_american":"true",
+         "s_website_url":"https://www.hfs.washington.edu/espresso/",
+         "owner":"Housing and Food Services (HFS)",
+         "campus":"seattle",
+         "s_pay_visa":"true"
+      },
+      "manager":"",
+      "last_modified":"2015-12-09T00:32:43.727679+00:00",
+      "images":[
+
+      ],
+      "display_access_restrictions":"",
+      "id":12,
+      "capacity":null,
+      "name":"H-bar",
+      "external_id":null,
+      "uri":"/api/v1/spot/12",
+      "available_hours":{
+         "monday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "tuesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "friday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "wednesday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "thursday":[
+            [
+               "10:30",
+               "14:30"
+            ]
+         ],
+         "sunday":[
+
+         ],
+         "saturday":[
+
+         ]
+      },
+      "etag":"dc954f467b55f9814ac3a551e6d8b2afe9796574",
+      "location":{
+         "floor":"",
+         "height_from_sea_level":null,
+         "room_number":"",
+         "longitude":-122.31114,
+         "latitude":47.653616,
+         "building_name":"Physics / Astronomy Building (PAB)"
+      },
+      "organization":"",
+      "type":[
+
+      ]
+   }
+]
