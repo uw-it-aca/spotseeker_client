@@ -118,7 +118,7 @@ class Spotseeker(object):
                 parse_datetime(image["modification_date"])
             spot_image.upload_user = image["upload_user"]
             spot_image.upload_application = image["upload_application"]
-            spot_image.thumbnail_root   = image["thumbnail_root"]
+            spot_image.thumbnail_root = image["thumbnail_root"]
 
             images.append(spot_image)
 
