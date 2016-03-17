@@ -1,0 +1,107 @@
+[
+  {
+    "id": "2",
+    "uri": "/api/v1/spot/2",
+    "name": "It's A Market",
+    "type": ["market"],
+    "meta_type": ["food"],
+    "location": {
+      "longitude": -122.3085307,
+      "latitude": 47.6558366,
+      "height_from_sea_level": 0.10,
+      "building_name": "The Market",
+      "floor": 0,
+      "room_number": "456",
+      "description": "This is a building"
+    },
+    "capacity": 0,
+    "display_access_restrictions": "none",
+    "images": [
+      {
+        "id":"1",
+        "url":"/api/v1/spot/2/image/1",
+        "content-type":"image/jpeg",
+        "width":0,
+        "height":0,
+        "creation_date":"Sun, 06 Nov 1994 08:49:37 GMT",
+        "modification_date":"Mon, 07 Nov 1994 01:49:37 GMT",
+        "upload_user":"user name",
+        "upload_application":"application name",
+        "thumbnail_root":"/api/v1/spot/2/image/1/thumb",
+        "description": "Information about the image",
+        "display_index": 0
+      }
+    ],
+    "available_hours":{
+      "monday": [ ["00:00", "10:00" ], ["11:00", "21:00"] ],
+      "tuesday": [ ["11:00", "21:00" ] ],
+      "wednesday": [ ["11:00", "21:00"] ],
+      "thursday": [ ["11:00", "21:00"] ],
+      "friday": [ ["11:00", "21:00"] ],
+      "saturday": [],
+      "sunday": [ ["11:00", "21:00"] ]
+    },
+    "organization": "Test Org",
+    "manager": "Mr Test Org",
+    "extended_info": {
+      "app_type" : "food",
+      "campus" : "seattle",
+      "hours_notes" : "",
+      "access_notes" : "",
+
+
+      "s_menu_url" : "www.yelp.com",
+      "s_website_url" : "www.uw.edu/food",
+      "s_contact_phone" : "2066164000",
+
+      "s_has_alert" : false,
+      "s_alert_notes" : "",
+
+      "s_has_reservation" : false,
+      "s_reservation_notes" : "",
+
+      "s_has_coupon" : false,
+      "s_coupon_expiration" : "",
+      "s_coupon_url" : "",
+
+      "s_cuisine_american" : false,
+      "s_cuisine_bbq" : false,
+      "s_cuisine_chinese" : false,
+      "s_cuisine_hawaiian" : true,
+      "s_cuisine_indian" : false,
+      "s_cuisine_italian" : false,
+      "s_cuisine_japanese" : true,
+      "s_cuisine_korean" : false,
+      "s_cuisine_mexican" : false,
+      "s_cuisine_vietnamese" : false,
+
+      "s_cuisine_light_lunch" : false,
+
+      "s_food_appetizers" : false,
+      "s_food_burgers" : false,
+      "s_food_entrees" : false,
+      "s_food_espresso" : true,
+      "s_food_pasta" : false,
+      "s_food_pizza" : true,
+      "s_food_salads" : false,
+      "s_food_sandwiches" : true,
+      "s_food_smoothies" : true,
+      "s_food_sushi" : true,
+      "s_food_tacos" : true,
+
+      "s_pay_cash" : false,
+      "s_pay_visa" : false,
+      "s_pay_mastercard" : false,
+      "s_pay_husky" : true,
+      "s_pay_dining" : true,
+
+      "s_open_breakfast" : false,
+      "s_open_lunch" : true,
+      "s_open_dinner" : true,
+      "s_open_late_night" : true
+    },
+    "last_modified": "2012-07-13T05:00:00+00:00",
+    "etag": "686897696a7c876b7e",
+    "external_id": "asd123"
+  }
+]

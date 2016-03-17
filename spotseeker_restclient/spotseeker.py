@@ -31,6 +31,7 @@ class Spotseeker(object):
 
         dao = SPOTSEEKER_DAO()
         url = "/api/v1/spot?" + urlencode(query_tuple)
+        print url
         if isinstance(dao._getDAO(), File):
             resp = dao.getURL(url, {})
             content = resp.data
@@ -117,7 +118,7 @@ class Spotseeker(object):
                 parse_datetime(image["modification_date"])
             spot_image.upload_user = image["upload_user"]
             spot_image.upload_application = image["upload_application"]
-            spot_image.thumbnail_root = image["thumbnail_root"]
+            spot_image.thumbnail_root   = image["thumbnail_root"]
 
             images.append(spot_image)
 
