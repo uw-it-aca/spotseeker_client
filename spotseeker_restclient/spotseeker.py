@@ -31,7 +31,7 @@ class Spotseeker(object):
 
         dao = SPOTSEEKER_DAO()
         url = "/api/v1/spot?" + urlencode(query_tuple)
-        print url
+
         if isinstance(dao._getDAO(), File):
             resp = dao.getURL(url, {})
             content = resp.data
