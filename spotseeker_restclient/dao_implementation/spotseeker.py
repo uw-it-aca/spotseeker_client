@@ -15,3 +15,8 @@ class Live(object):
         return get_live_url('GET',
                             settings.SPOTSEEKER_HOST,
                             url, headers=headers)
+
+    def putURL(self, url, headers, body):
+        return get_live_url('PUT',
+                            settings.SPOTSEEKER_HOST,
+                            url, headers=headers)

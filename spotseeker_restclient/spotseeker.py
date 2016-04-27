@@ -10,6 +10,18 @@ from urllib import urlencode
 
 class Spotseeker(object):
 
+    def put_spot(self, spot_id):
+        url = "/api/v1/spot/%s" % spot_id
+        dao = SPOTSEEKER_DAO()
+        if isinstance(dao._getDAO(), File):
+            resp = dao.putURL(url, {})
+            content = resp.data
+        else:
+            resp, content = dao.putURL(url, {}, {"type": "uh-oh"})
+
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
+
     def get_spot_by_id(self, spot_id):
         url = "/api/v1/spot/%s" % spot_id
         dao = SPOTSEEKER_DAO()
