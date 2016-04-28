@@ -120,3 +120,8 @@ class SpotseekerTest(TestCase):
         self.assertEqual(spot_data.images[0].display_index, 0)
 
         self.assertEqual(len(spot_data.spot_availability), 5)
+
+    def test_building_list(self):
+        spot_client = Spotseeker()
+        buildings = spot_client.get_building_list()
+        self.assertEqual(len(buildings), 67)

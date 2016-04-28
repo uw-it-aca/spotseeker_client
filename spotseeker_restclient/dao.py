@@ -71,7 +71,7 @@ class SPOTSEEKER_DAO(MY_DAO):
         return self._getURL('spotseeker', url, headers)
 
     def putURL(self, url, headers, body):
-        return self._putURL('spotseeker', url, headers)
+        return self._putURL('spotseeker', url, headers, body)
 
     def _getDAO(self):
         return self._getModule('SPOTSEEKER_DAO_CLASS',
