@@ -44,8 +44,11 @@ class Spotseeker(object):
             raise DataFailureException(url, resp.status, content)
         return self._spot_from_data(json.loads(content))
 
-    def get_building_list(self):
+    def get_building_list(self, app_type=None):
         url = "/api/v1/buildings"
+        if app_type:
+            url += "?extended_info:app_type=food"
+
         dao = SPOTSEEKER_DAO()
         if isinstance(dao._getDAO(), File):
             resp = dao.getURL(url, {})
