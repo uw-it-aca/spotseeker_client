@@ -5,10 +5,32 @@ from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
 from spotseeker_restclient.dao_implementation.spotseeker import File
 import json
 from django.utils.dateparse import parse_datetime, parse_time
+from django.core.exceptions import ImproperlyConfigured
+from django.conf import settings
 from urllib import urlencode
 
 
 class Spotseeker(object):
+
+    def put_spot(self, spot_id, spot_json, etag):
+        url = "/api/v1/spot/%s" % spot_id
+        dao = SPOTSEEKER_DAO()
+
+        if isinstance(dao._getDAO(), File):
+            resp = dao.putURL(url, {})
+            content = resp.data
+        else:
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER,
+                           "If-Match": etag}
+                resp, content = dao.putURL(url,
+                                           headers,
+                                           spot_json)
+            except AttributeError:
+                raise ImproperlyConfigured("Must set OAUTH_USER in settings")
+
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
 
     def get_spot_by_id(self, spot_id):
         url = "/api/v1/spot/%s" % spot_id
@@ -21,8 +43,23 @@ class Spotseeker(object):
 
         if resp.status != 200:
             raise DataFailureException(url, resp.status, content)
-
         return self._spot_from_data(json.loads(content))
+
+    def get_building_list(self, app_type=None):
+        url = "/api/v1/buildings"
+        if app_type:
+            url += "?extended_info:app_type=food"
+
+        dao = SPOTSEEKER_DAO()
+        if isinstance(dao._getDAO(), File):
+            resp = dao.getURL(url, {})
+            content = resp.data
+        else:
+            resp, content = dao.getURL(url, {})
+
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
+        return json.loads(content)
 
     def search_spots(self, query_tuple):
         """

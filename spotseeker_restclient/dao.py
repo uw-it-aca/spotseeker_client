@@ -1,4 +1,4 @@
-from django.utils.importlib import import_module
+from importlib import import_module
 from django.conf import settings
 from django.core.exceptions import *
 from spotseeker_restclient.cache_implementation import NoCache
@@ -69,6 +69,9 @@ class MY_DAO(DAO_BASE):
 class SPOTSEEKER_DAO(MY_DAO):
     def getURL(self, url, headers):
         return self._getURL('spotseeker', url, headers)
+
+    def putURL(self, url, headers, body):
+        return self._putURL('spotseeker', url, headers, body)
 
     def _getDAO(self):
         return self._getModule('SPOTSEEKER_DAO_CLASS',
