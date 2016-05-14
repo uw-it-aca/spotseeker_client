@@ -21,10 +21,11 @@ class Spotseeker(object):
             content = resp.data
         else:
             try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER,
+                           "If-Match": etag}
                 resp, content = dao.putURL(url,
-                                           {"X-OAuth-User": settings.OAUTH_USER,
-                                            "If-Match": etag},
-                                            spot_json)
+                                           headers,
+                                           spot_json)
             except AttributeError:
                 raise ImproperlyConfigured("Must set OAUTH_USER in settings")
 
