@@ -8,9 +8,39 @@ from django.utils.dateparse import parse_datetime, parse_time
 from django.core.exceptions import ImproperlyConfigured
 from django.conf import settings
 from urllib import urlencode
+import requests
+from requests_oauthlib import OAuth1
 
 
 class Spotseeker(object):
+
+    def post_image(self, spot_id, image):
+        url = "api/v1/spot/%s/image" % spot_id
+        dao = SPOTSEEKER_DAO()
+        if isinstance(dao._getDAO(), File):
+            resp = dao.putURL(url, {})
+            content = resp.data
+        else:
+            # try:
+            headers = {"X-OAuth-User": settings.OAUTH_USER}
+            auth = OAuth1(settings.SPOTSEEKER_OAUTH_KEY,
+                          settings.SPOTSEEKER_OAUTH_SECRET)
+            full_url = settings.SPOTSEEKER_HOST + "/" + url
+            files = {'image': ('image.jpg', image)}
+
+
+            r = requests.post(full_url, files=files, auth=auth, headers=headers)
+
+            # resp, content = dao.putURL(url,
+            #                            headers,
+            #                            {"description": 'an image',
+            #                             "display_index": 0,
+            #                             "image": image
+            #                            })
+            # except AttributeError:
+            #     raise ImproperlyConfigured("Must set OAUTH_USER in settings")
+
+
 
     def put_spot(self, spot_id, spot_json, etag):
         url = "/api/v1/spot/%s" % spot_id
