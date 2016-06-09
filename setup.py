@@ -16,6 +16,8 @@ setup(
         'Django<=1.8.6',
         'urllib3',
         'oauth2',
+        'requests',
+        'requests-oauthlib'
 
     ],
     license='Apache License, Version 2.0',  # example license
