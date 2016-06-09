@@ -1,3 +1,4 @@
+import StringIO
 from spotseeker_restclient.dao import SPOTSEEKER_DAO
 from spotseeker_restclient.exceptions import DataFailureException
 from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
@@ -20,27 +21,25 @@ class Spotseeker(object):
         if isinstance(dao._getDAO(), File):
             resp = dao.putURL(url, {})
             content = resp.data
+            return content
         else:
-            # try:
-            headers = {"X-OAuth-User": settings.OAUTH_USER}
-            auth = OAuth1(settings.SPOTSEEKER_OAUTH_KEY,
-                          settings.SPOTSEEKER_OAUTH_SECRET)
-            full_url = settings.SPOTSEEKER_HOST + "/" + url
-            files = {'image': ('image.jpg', image)}
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER}
+                auth = OAuth1(settings.SPOTSEEKER_OAUTH_KEY,
+                              settings.SPOTSEEKER_OAUTH_SECRET)
+                full_url = settings.SPOTSEEKER_HOST + "/" + url
+                files = {'image': ('image.jpg', StringIO.StringIO(image))}
 
-
-            r = requests.post(full_url, files=files, auth=auth, headers=headers)
-
-            # resp, content = dao.putURL(url,
-            #                            headers,
-            #                            {"description": 'an image',
-            #                             "display_index": 0,
-            #                             "image": image
-            #                            })
-            # except AttributeError:
-            #     raise ImproperlyConfigured("Must set OAUTH_USER in settings")
-
-
+                # Using requests lib here as urllib does not have good support
+                # for multipart form uploads.
+                r = requests.post(full_url,
+                                  files=files,
+                                  auth=auth,
+                                  headers=headers)
+                if r.status_code != 201:
+                    raise DataFailureException(url, r.status, r.content)
+            except AttributeError:
+                raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
 
     def put_spot(self, spot_id, spot_json, etag):
         url = "/api/v1/spot/%s" % spot_id
