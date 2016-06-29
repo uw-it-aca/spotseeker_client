@@ -42,9 +42,6 @@ class Spotseeker(object):
                 raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
 
     def delete_image(self, spot_id, image_id, etag):
-        print spot_id
-        print image_id
-        print etag
         url = "/api/v1/spot/%s/image/%s" % (spot_id, image_id)
         dao = SPOTSEEKER_DAO()
 
@@ -55,7 +52,7 @@ class Spotseeker(object):
                 headers = {"X-OAuth-User": settings.OAUTH_USER,
                            "If-Match": etag}
                 resp, content = dao.deleteURL(url,
-                                           headers)
+                                              headers)
             except AttributeError:
                 raise ImproperlyConfigured("Must set OAUTH_USER in settings")
 
