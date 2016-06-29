@@ -1,3 +1,4 @@
+import StringIO
 from spotseeker_restclient.dao import SPOTSEEKER_DAO
 from spotseeker_restclient.exceptions import DataFailureException
 from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
@@ -8,9 +9,55 @@ from django.utils.dateparse import parse_datetime, parse_time
 from django.core.exceptions import ImproperlyConfigured
 from django.conf import settings
 from urllib import urlencode
+import requests
+from requests_oauthlib import OAuth1
 
 
 class Spotseeker(object):
+
+    def post_image(self, spot_id, image):
+        url = "api/v1/spot/%s/image" % spot_id
+        dao = SPOTSEEKER_DAO()
+        if isinstance(dao._getDAO(), File):
+            resp = dao.putURL(url, {})
+            content = resp.data
+            return content
+        else:
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER}
+                auth = OAuth1(settings.SPOTSEEKER_OAUTH_KEY,
+                              settings.SPOTSEEKER_OAUTH_SECRET)
+                full_url = settings.SPOTSEEKER_HOST + "/" + url
+                files = {'image': ('image.jpg', StringIO.StringIO(image))}
+
+                # Using requests lib here as urllib does not have good support
+                # for multipart form uploads.
+                r = requests.post(full_url,
+                                  files=files,
+                                  auth=auth,
+                                  headers=headers)
+                if r.status_code != 201:
+                    raise DataFailureException(url, r.status, r.content)
+            except AttributeError:
+                raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
+
+    def delete_image(self, spot_id, image_id, etag):
+        url = "/api/v1/spot/%s/image/%s" % (spot_id, image_id)
+        dao = SPOTSEEKER_DAO()
+
+        if isinstance(dao._getDAO(), File):
+            resp = {'status': 200}
+        else:
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER,
+                           "If-Match": etag}
+                resp, content = dao.deleteURL(url,
+                                              headers)
+            except AttributeError:
+                raise ImproperlyConfigured("Must set OAUTH_USER in settings")
+
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
 
     def put_spot(self, spot_id, spot_json, etag):
         url = "/api/v1/spot/%s" % spot_id
