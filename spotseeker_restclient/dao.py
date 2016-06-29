@@ -57,7 +57,7 @@ class MY_DAO(DAO_BASE):
 
     def _deleteURL(self, service, url, headers):
         dao = self._getDAO()
-        response = dao.deleteURL(url, headers)
+        response = dao.deleteURL(url, headers, "")
         return response
 
     def _putURL(self, service, url, headers, body=None):
@@ -75,6 +75,9 @@ class SPOTSEEKER_DAO(MY_DAO):
 
     def postURL(self, url, headers, body):
         return self._postURL('spotseeker', url, headers, body)
+
+    def deleteURL(self, url, headers):
+        return self._deleteURL('spotseeker', url, headers)
 
     def _getDAO(self):
         return self._getModule('SPOTSEEKER_DAO_CLASS',

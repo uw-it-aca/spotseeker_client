@@ -23,3 +23,10 @@ class Live(object):
                             url,
                             headers=headers,
                             body=body)
+
+    def deleteURL(self, url, headers, body):
+        return get_live_url('DELETE',
+                            settings.SPOTSEEKER_HOST,
+                            url,
+                            headers=headers,
+                            body=body)
