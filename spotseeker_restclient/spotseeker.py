@@ -84,12 +84,15 @@ class Spotseeker(object):
         dao = SPOTSEEKER_DAO()
 
         if isinstance(dao._getDAO(), File):
-            resp = dao.putURL(url, {})
+            resp = dao.postURL(url, {})
             content = resp.data
         else:
             try:
                 headers = {"X-OAuth-User": settings.OAUTH_USER}
-                resp, content = dao.putURL(url,
+                import simplejson as json
+                dict = {'test': 'value'}
+                spot_json = json.dumps(dict)
+                resp, content = dao.postURL(url,
                                            headers,
                                            spot_json)
             except AttributeError:

@@ -32,6 +32,13 @@ def get_live_url(method,
                                secret=settings.SPOTSEEKER_OAUTH_SECRET)
     client = oauth2.Client(consumer)
     url = host + url
+    print type(body)
+    print body
+    import json
+    asd = json.loads(body)
+    print asd
+    print type(asd)
+
     return client.request(url,
                           method=method,
                           body=body,
