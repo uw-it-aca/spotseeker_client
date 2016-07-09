@@ -88,18 +88,18 @@ class Spotseeker(object):
             content = resp.data
         else:
             try:
-                headers = {"X-OAuth-User": settings.OAUTH_USER}
-                import simplejson as json
-                dict = {'test': 'value'}
-                spot_json = json.dumps(dict)
+                headers = {"X-OAuth-User": settings.OAUTH_USER,
+                           "Content-Type": "application/json"
+                           }
                 resp, content = dao.postURL(url,
-                                           headers,
-                                           spot_json)
+                                            headers,
+                                            spot_json)
             except AttributeError:
                 raise ImproperlyConfigured("Must set OAUTH_USER in settings")
 
-        if resp.status != 200:
+        if resp.status != 201:
             raise DataFailureException(url, resp.status, content)
+        return resp
 
     def get_spot_by_id(self, spot_id):
         url = "/api/v1/spot/%s" % spot_id
