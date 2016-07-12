@@ -155,6 +155,31 @@ class Spotseeker(object):
 
         return spots
 
+    def all_spots(self):
+        """
+        Returns a list of all spots.
+        """
+
+        dao = SPOTSEEKER_DAO()
+        url = "/api/v1/spot/all"
+
+        if isinstance(dao._getDAO(), File):
+            resp = dao.getURL(url, {})
+            content = resp.data
+        else:
+            resp, content = dao.getURL(url, {})
+
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
+
+        results = json.loads(content)
+
+        spots = []
+        for res in results:
+            spots.append(self._spot_from_data(res))
+
+        return spots
+
     def _spot_from_data(self, spot_data):
         spot = Spot()
 
