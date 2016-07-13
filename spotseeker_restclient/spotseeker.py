@@ -79,6 +79,23 @@ class Spotseeker(object):
         if resp.status != 200:
             raise DataFailureException(url, resp.status, content)
 
+    def delete_spot(self, spot_id, etag):
+        url = "/api/v1/spot/%s" % spot_id
+        dao = SPOTSEEKER_DAO()
+        if isinstance(dao._getDAO(), File):
+            resp = dao.deleteURL(url, {})
+            content = resp.data
+        else:
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER,
+                           "If-Match": etag}
+                resp, content = dao.deleteURL(url,
+                                              headers)
+            except AttributeError:
+                raise ImproperlyConfigured("Must set OAUTH_USER in settings")
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
+
     def post_spot(self, spot_json):
         url = "/api/v1/spot/"
         dao = SPOTSEEKER_DAO()
