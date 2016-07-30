@@ -56,6 +56,17 @@ class SpotseekerTest(TestCase):
 
         self.assertEqual(len(spot_data.spot_availability), 7)
 
+    def test_spot_items(self):
+        spot_client = Spotseeker()
+        spot_data = spot_client.get_spot_by_id('1')
+        self.assertEqual(len(spot_data.items), 2)
+        item1 = spot_data.items[0]
+        self.assertEqual(item1.item_id, 796)
+        self.assertEqual(item1.name, "C-19074")
+        self.assertEqual(item1.category, "Digital Camera")
+        self.assertEqual(item1.subcategory, "")
+        self.assertEqual(item1.uri, "http://localhost/api/v1/item/796")
+
     def test_bad_spot(self):
         spot_client = Spotseeker()
         self.assertRaises(DataFailureException,
