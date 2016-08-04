@@ -1,0 +1,90 @@
+[{
+	"capacity": 15,
+	"name": "Banh & Naan, Husky Den",
+	"external_id": null,
+	"extended_info": {
+		"s_pay_cash": "true",
+		"s_phone": "206-685-4950",
+		"s_pay_husky": "true",
+		"app_type": "food",
+		"s_pay_visa": "true",
+		"s_pay_mastercard": "true",
+		"s_food_entrees": "true",
+		"s_pay_dining": "true",
+		"location_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
+		"s_food_sandwiches": "true",
+		"s_cuisine_vietnamese": "true",
+	  	"s_cuisine_new_and_unmapped_type": "true",
+		"s_website_url": "https://www.hfs.washington.edu/dining/Default.aspx?id=3620#gsc.tab=0",
+		"owner": "Housing and Food Services (HFS)",
+		"campus": "seattle",
+		"s_cuisine_indian": "true",
+		"s_menu_url": "https://www.hfs.washington.edu/uploadedFiles/Dining/Dining_Locations/Bahnwebmenu%202014.pdf"
+	},
+	"uri": "/api/v1/spot/1",
+	"available_hours": {
+		"monday": [
+			["10:30", "14:30"],
+            ["15:30", "18:30"]
+		],
+		"tuesday": [
+			["8:30", "9:30"],
+            ["10:30", "14:30"]
+		],
+		"friday": [
+            ["10:30", "15:30"],
+            ["16:00", "16:30"],
+			["17:30", "22:30"]
+		],
+		"wednesday": [
+			["10:30", "14:30"]
+		],
+		"thursday": [
+			["10:30", "14:30"]
+		],
+		"sunday": [],
+		"saturday": []
+	},
+	"manager": "",
+	"last_modified": "2015-12-15T22:35:41.699054+00:00",
+	"etag": "f573702e9e71197ff3eaa3c6357845d614580930",
+	"type": ["food_court"],
+	"images": [],
+	"organization": "",
+	"display_access_restrictions": "",
+	"id": 1,
+	"location": {
+		"floor": "Ground Floor",
+		"height_from_sea_level": null,
+		"room_number": "Husky Den",
+		"longitude": -122.3051094,
+		"latitude": 47.6552915,
+		"building_name": "Husky Union Building (HUB)"
+	},
+	"items": [
+        {
+          "id": 796,
+          "name": "C-19074",
+          "category": "Digital Camera",
+          "subcategory": "",
+          "url": "http://localhost/api/v1/item/796",
+          "extended_info": {
+			  "make_model": "Canon Powershot SD1100 IS",
+			  "customer_type": "UW Student",
+			  "auto_item_status": "active"
+		  }
+        },
+		{
+          "id": 792,
+          "name": "C-asd1",
+          "category": "Digital Camera",
+          "subcategory": "",
+          "url": "http://localhost/api/v1/item/792",
+          "extended_info": {
+			  "make_model": "Canon Powershot SD1100 IS",
+			  "customer_type": "UW Student",
+			  "auto_item_status": "active"
+		  }
+        }
+     ]
+}]
