@@ -67,7 +67,6 @@
           "name": "C-19074",
           "category": "Digital Camera",
           "subcategory": "",
-          "url": "http://localhost/api/v1/item/796",
           "extended_info": {
 			  "make_model": "Canon Powershot SD1100 IS",
 			  "customer_type": "UW Student",
@@ -79,7 +78,6 @@
           "name": "C-asd1",
           "category": "Digital Camera",
           "subcategory": "",
-          "url": "http://localhost/api/v1/item/792",
           "extended_info": {
 			  "make_model": "Canon Powershot SD1100 IS",
 			  "customer_type": "UW Student",

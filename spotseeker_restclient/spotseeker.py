@@ -241,7 +241,6 @@ class Spotseeker(object):
             spot_item.name = item["name"]
             spot_item.category = item["category"]
             spot_item.subcategory = item["subcategory"]
-            spot_item.uri = item["url"]
             spot_item.extended_info = \
                 self._extended_info_from_data(item["extended_info"])
             spot_items.append(spot_item)

@@ -65,7 +65,6 @@ class SpotseekerTest(TestCase):
         self.assertEqual(item1.name, "C-19074")
         self.assertEqual(item1.category, "Digital Camera")
         self.assertEqual(item1.subcategory, "")
-        self.assertEqual(item1.uri, "http://localhost/api/v1/item/796")
 
     def test_bad_spot(self):
         spot_client = Spotseeker()
