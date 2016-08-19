@@ -81,6 +81,5 @@ class Spot(models.Model):
 class SpotItem(models.Model):
     item_id = models.IntegerField()
     name = models.CharField(max_length=100, blank=True)
-    uri = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
     subcategory = models.CharField(max_length=255)
