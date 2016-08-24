@@ -228,6 +228,7 @@ class Spotseeker(object):
         spot.images = self._spot_images_from_data(spot_data["images"])
         spot.extended_info = \
             self._extended_info_from_data(spot_data["extended_info"])
+        spot.items = []
         if "items" in spot_data and len(spot_data["items"]) > 0:
             spot.items = self._items_from_data(spot_data["items"])
 
