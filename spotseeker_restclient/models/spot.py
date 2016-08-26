@@ -83,3 +83,15 @@ class SpotItem(models.Model):
     name = models.CharField(max_length=100, blank=True)
     category = models.CharField(max_length=255)
     subcategory = models.CharField(max_length=255)
+
+
+class ItemImage(models.Model):
+    image_id = models.IntegerField()
+    description = models.CharField(max_length=200, blank=True)
+    display_index = models.PositiveIntegerField(null=True, blank=True)
+    width = models.IntegerField()
+    height = models.IntegerField()
+    content_type = models.CharField(max_length=40)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    upload_user = models.CharField(max_length=40)
+    upload_application = models.CharField(max_length=100)
