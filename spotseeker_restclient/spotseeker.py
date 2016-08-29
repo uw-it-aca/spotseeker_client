@@ -37,12 +37,57 @@ class Spotseeker(object):
                                   auth=auth,
                                   headers=headers)
                 if r.status_code != 201:
-                    raise DataFailureException(url, r.status, r.content)
+                    raise DataFailureException(url, r.status_code, r.content)
             except AttributeError:
                 raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
 
     def delete_image(self, spot_id, image_id, etag):
         url = "/api/v1/spot/%s/image/%s" % (spot_id, image_id)
+        dao = SPOTSEEKER_DAO()
+
+        if isinstance(dao._getDAO(), File):
+            resp = {'status': 200}
+        else:
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER,
+                           "If-Match": etag}
+                resp, content = dao.deleteURL(url,
+                                              headers)
+            except AttributeError:
+                raise ImproperlyConfigured("Must set OAUTH_USER in settings")
+
+        if resp.status != 200:
+            raise DataFailureException(url, resp.status, content)
+
+    def post_item_image(self, item_id, image):
+        url = "api/v1/item/%s/image" % item_id
+        dao = SPOTSEEKER_DAO()
+        if isinstance(dao._getDAO(), File):
+            resp = dao.putURL(url, {})
+            content = resp.data
+            return content
+        else:
+            try:
+                headers = {"X-OAuth-User": settings.OAUTH_USER}
+                auth = OAuth1(settings.SPOTSEEKER_OAUTH_KEY,
+                              settings.SPOTSEEKER_OAUTH_SECRET)
+                full_url = settings.SPOTSEEKER_HOST + "/" + url
+                files = {'image': ('image.jpg', StringIO.StringIO(image))}
+
+                # Using requests lib here as urllib does not have good support
+                # for multipart form uploads.
+                r = requests.post(full_url,
+                                  files=files,
+                                  auth=auth,
+                                  headers=headers)
+                if r.status_code != 201:
+                    raise DataFailureException(url, r.status_code, r.content)
+            except AttributeError as ex:
+                print str(ex)
+                raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
+
+    def delete_item_image(self, item_id, image_id, etag):
+        url = "/api/v1/item/%s/image/%s" % (item_id, image_id)
         dao = SPOTSEEKER_DAO()
 
         if isinstance(dao._getDAO(), File):
@@ -131,10 +176,10 @@ class Spotseeker(object):
             raise DataFailureException(url, resp.status, content)
         return self._spot_from_data(json.loads(content))
 
-    def get_building_list(self, app_type=None):
-        url = "/api/v1/buildings"
+    def get_building_list(self, campus, app_type=None):
+        url = "/api/v1/buildings?extended_info:campus=" + campus
         if app_type:
-            url += "?extended_info:app_type=food"
+            url += "&extended_info:app_type=" + app_type
 
         dao = SPOTSEEKER_DAO()
         if isinstance(dao._getDAO(), File):
@@ -228,6 +273,7 @@ class Spotseeker(object):
         spot.images = self._spot_images_from_data(spot_data["images"])
         spot.extended_info = \
             self._extended_info_from_data(spot_data["extended_info"])
+        spot.items = []
         if "items" in spot_data and len(spot_data["items"]) > 0:
             spot.items = self._items_from_data(spot_data["items"])
 
@@ -284,6 +330,27 @@ class Spotseeker(object):
             spot_image.thumbnail_root = image["thumbnail_root"]
 
             images.append(spot_image)
+
+        return images
+
+    def _item_images_from_data(self, image_data):
+        images = []
+
+        for image in image_data:
+            item_image = ItemImage()
+            item_image.image_id = image["id"]
+            item_image.url = image["url"]
+            item_image.description = image["description"]
+            item_image.display_index = image["display_index"]
+            item_image.content_type = image["content-type"]
+            item_image.width = image["width"]
+            item_image.height = image["height"]
+            item_image.creation_date = parse_datetime(image["creation_date"])
+            item_image.upload_user = image["upload_user"]
+            item_image.upload_application = image["upload_application"]
+            item_image.thumbnail_root = image["thumbnail_root"]
+
+            images.append(item_image)
 
         return images
 
