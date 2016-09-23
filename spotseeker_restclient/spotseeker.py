@@ -2,7 +2,7 @@ import StringIO
 from spotseeker_restclient.dao import SPOTSEEKER_DAO
 from spotseeker_restclient.exceptions import DataFailureException
 from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
-    SpotExtendedInfo, SpotImage, SpotType, SpotItem
+    SpotExtendedInfo, SpotImage, SpotType, SpotItem, ItemImage
 from spotseeker_restclient.dao_implementation.spotseeker import File
 import json
 from django.utils.dateparse import parse_datetime, parse_time
@@ -287,6 +287,9 @@ class Spotseeker(object):
             spot_item.name = item["name"]
             spot_item.category = item["category"]
             spot_item.subcategory = item["subcategory"]
+            spot_item.images = []
+            if "images" in item and len(item["images"]) > 0:
+                spot_item.images = self._item_images_from_data(item["images"])
             spot_item.extended_info = \
                 self._extended_info_from_data(item["extended_info"])
             spot_items.append(spot_item)
