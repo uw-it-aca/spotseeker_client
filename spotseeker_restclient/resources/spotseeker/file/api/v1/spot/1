@@ -14,7 +14,7 @@
 		"location_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in consequat purus. Suspendisse euismod scelerisque malesuada. Aenean eu hendrerit lorem, egestas ullamcorper lacus. Sed dignissim nunc non dolor vulputate, in volutpat metus laoreet.",
 		"s_food_sandwiches": "true",
 		"s_cuisine_vietnamese": "true",
-	  	"s_cuisine_new_and_unmapped_type": "true",
+		"s_cuisine_new_and_unmapped_type": "true",
 		"s_website_url": "https://www.hfs.washington.edu/dining/Default.aspx?id=3620#gsc.tab=0",
 		"owner": "Housing and Food Services (HFS)",
 		"campus": "seattle",
@@ -25,15 +25,15 @@
 	"available_hours": {
 		"monday": [
 			["10:30", "14:30"],
-            ["15:30", "18:30"]
+			["15:30", "18:30"]
 		],
 		"tuesday": [
 			["8:30", "9:30"],
-            ["10:30", "14:30"]
+			["10:30", "14:30"]
 		],
 		"friday": [
-            ["10:30", "15:30"],
-            ["16:00", "16:30"],
+			["10:30", "15:30"],
+			["16:00", "16:30"],
 			["17:30", "22:30"]
 		],
 		"wednesday": [
@@ -62,27 +62,43 @@
 		"building_name": "Husky Union Building (HUB)"
 	},
 	"items": [
-        {
-          "id": 796,
-          "name": "C-19074",
-          "category": "Digital Camera",
-          "subcategory": "",
-          "extended_info": {
-			  "make_model": "Canon Powershot SD1100 IS",
-			  "customer_type": "UW Student",
-			  "auto_item_status": "active"
-		  }
-        },
 		{
-          "id": 792,
-          "name": "C-asd1",
-          "category": "Digital Camera",
-          "subcategory": "",
-          "extended_info": {
-			  "make_model": "Canon Powershot SD1100 IS",
-			  "customer_type": "UW Student",
-			  "auto_item_status": "active"
-		  }
-        }
-     ]
+			"id": 796,
+			"name": "C-19074",
+			"category": "Digital Camera",
+			"subcategory": "",
+			"extended_info": {
+				"make_model": "Canon Powershot SD1100 IS",
+				"customer_type": "UW Student",
+				"auto_item_status": "active"
+			},
+			"images": [
+				{
+					"id": 1,
+					"url": "/api/v1/spot/3/image/1",
+					"description": "An Image",
+					"display_index": 0,
+					"content-type": "image/jpeg",
+					"width": 400,
+					"height": 800,
+					"creation_date": "6-12-2013",
+					"modification_date": "6-12-2013",
+					"upload_user": "acatest",
+					"upload_application": "manager",
+					"thumbnail_root": "/asd/"
+				}
+			]
+		},
+		{
+			"id": 792,
+			"name": "C-asd1",
+			"category": "Digital Camera",
+			"subcategory": "",
+			"extended_info": {
+				"make_model": "Canon Powershot SD1100 IS",
+				"customer_type": "UW Student",
+				"auto_item_status": "active"
+			}
+		}
+	]
 }
