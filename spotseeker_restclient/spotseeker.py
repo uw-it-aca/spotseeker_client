@@ -83,7 +83,6 @@ class Spotseeker(object):
                 if r.status_code != 201:
                     raise DataFailureException(url, r.status_code, r.content)
             except AttributeError as ex:
-                print str(ex)
                 raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
 
     def delete_item_image(self, item_id, image_id, etag):
@@ -373,7 +372,6 @@ class Spotseeker(object):
         return self._get_image("spot", parent_id, image_id, width)
 
     def _get_image(self, image_app_type, parent_id, image_id, width=None):
-        print "_get"
         dao = SPOTSEEKER_DAO()
         if width is not None:
             url = "/api/v1/%s/%s/image/%s/thumb/constrain/width:%s" % (
@@ -389,6 +387,5 @@ class Spotseeker(object):
             resp = dao.getURL(url, {})
             content = resp.data
         else:
-            print url
             resp, content = dao.getURL(url, {})
         return resp, content
