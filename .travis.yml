@@ -3,7 +3,7 @@ language: python
 python:
   - "2.7"
 install:
-  - pip install setuptools>=28
+  - pip install --upgrade setuptools>=28
   - python setup.py -q install
 before_script:
   - pip install coverage
