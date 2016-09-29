@@ -65,6 +65,8 @@ class SpotseekerTest(TestCase):
         self.assertEqual(item1.name, "C-19074")
         self.assertEqual(item1.category, "Digital Camera")
         self.assertEqual(item1.subcategory, "")
+        self.assertEqual(len(item1.images), 1),
+        self.assertEqual(item1.images[0].image_id, 1),
 
     def test_bad_spot(self):
         spot_client = Spotseeker()

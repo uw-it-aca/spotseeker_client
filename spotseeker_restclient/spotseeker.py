@@ -2,7 +2,7 @@ import StringIO
 from spotseeker_restclient.dao import SPOTSEEKER_DAO
 from spotseeker_restclient.exceptions import DataFailureException
 from spotseeker_restclient.models.spot import Spot, SpotAvailableHours, \
-    SpotExtendedInfo, SpotImage, SpotType, SpotItem
+    SpotExtendedInfo, SpotImage, SpotType, SpotItem, ItemImage
 from spotseeker_restclient.dao_implementation.spotseeker import File
 import json
 from django.utils.dateparse import parse_datetime, parse_time
@@ -83,7 +83,6 @@ class Spotseeker(object):
                 if r.status_code != 201:
                     raise DataFailureException(url, r.status_code, r.content)
             except AttributeError as ex:
-                print str(ex)
                 raise ImproperlyConfigured("Must set OAUTH_ keys in settings")
 
     def delete_item_image(self, item_id, image_id, etag):
@@ -287,6 +286,9 @@ class Spotseeker(object):
             spot_item.name = item["name"]
             spot_item.category = item["category"]
             spot_item.subcategory = item["subcategory"]
+            spot_item.images = []
+            if "images" in item and len(item["images"]) > 0:
+                spot_item.images = self._item_images_from_data(item["images"])
             spot_item.extended_info = \
                 self._extended_info_from_data(item["extended_info"])
             spot_items.append(spot_item)
@@ -362,3 +364,28 @@ class Spotseeker(object):
                                                   value=info_data[attribute])
             extended_info.append(spot_extended_info)
         return extended_info
+
+    def get_item_image(self, parent_id, image_id, width=None):
+        return self._get_image("item", parent_id, image_id, width)
+
+    def get_spot_image(self, parent_id, image_id, width=None):
+        return self._get_image("spot", parent_id, image_id, width)
+
+    def _get_image(self, image_app_type, parent_id, image_id, width=None):
+        dao = SPOTSEEKER_DAO()
+        if width is not None:
+            url = "/api/v1/%s/%s/image/%s/thumb/constrain/width:%s" % (
+                image_app_type,
+                parent_id,
+                image_id,
+                width)
+        else:
+            url = "/api/v1/%s/%s/image/%s" % (image_app_type,
+                                              parent_id,
+                                              image_id)
+        if isinstance(dao._getDAO(), File):
+            resp = dao.getURL(url, {})
+            content = resp.data
+        else:
+            resp, content = dao.getURL(url, {})
+        return resp, content
