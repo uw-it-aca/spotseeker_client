@@ -365,3 +365,30 @@ class Spotseeker(object):
                                                   value=info_data[attribute])
             extended_info.append(spot_extended_info)
         return extended_info
+
+    def get_item_image(self, parent_id, image_id, width=None):
+        return self._get_image("item", parent_id, image_id, width)
+
+    def get_spot_image(self, parent_id, image_id, width=None):
+        return self._get_image("spot", parent_id, image_id, width)
+
+    def _get_image(self, image_app_type, parent_id, image_id, width=None):
+        print "_get"
+        dao = SPOTSEEKER_DAO()
+        if width is not None:
+            url = "/api/v1/%s/%s/image/%s/thumb/constrain/width:%s" % (
+                image_app_type,
+                parent_id,
+                image_id,
+                width)
+        else:
+            url = "/api/v1/%s/%s/image/%s" % (image_app_type,
+                                              parent_id,
+                                              image_id)
+        if isinstance(dao._getDAO(), File):
+            resp = dao.getURL(url, {})
+            content = resp.data
+        else:
+            print url
+            resp, content = dao.getURL(url, {})
+        return resp, content
