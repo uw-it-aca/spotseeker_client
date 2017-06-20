@@ -211,8 +211,12 @@ class Spotseeker(object):
         results = json.loads(content)
 
         spots = []
-        for res in results:
-            spots.append(self._spot_from_data(res))
+        if any('request-experimental' in tup for tup in query_tuple):
+            for res in results:
+                spots.append(self._experimental_spot_from_data(res))
+        else:
+            for res in results:
+                spots.append(self._spot_from_data(res))
 
         return spots
 
@@ -240,6 +244,20 @@ class Spotseeker(object):
             spots.append(self._spot_from_data(res))
 
         return spots
+
+    def _experimental_spot_from_data(self, spot_data):
+        spot = Spot()
+        spot.spot_id = spot_data["id"]
+        spot.latitude = spot_data["latitude"]
+        spot.longitude = spot_data["longitude"]
+        spot.building_name = spot_data["building_name"]
+        spot.etag = spot_data["etag"]
+        # need to somehow figure is_hidden
+        spot.extended_info = []
+        # Since these fields can't be empty
+        spot.uri = "dummy"
+        spot.thumbnail_root = "dummy"
+        return spot
 
     def _spot_from_data(self, spot_data):
         spot = Spot()
