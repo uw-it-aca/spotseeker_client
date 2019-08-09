@@ -62,12 +62,12 @@
 	"id": "2",
 	"uri": "/api/v1/spot/2",
 	"name": "This is a study spot",
-	"type": ["market"],
+	"type": ["study_room"],
 	"location": {
 		"longitude": -122.3085307,
 		"latitude": 47.6558366,
 		"height_from_sea_level": 0.10,
-		"building_name": "The Market",
+		"building_name": "Study Spot",
 		"floor": 0,
 		"room_number": "456",
 		"description": "This is a building"
