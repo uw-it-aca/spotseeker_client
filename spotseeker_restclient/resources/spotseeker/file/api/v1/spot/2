@@ -52,6 +52,7 @@
 	},
 	"organization": "Test Org",
 	"manager": "Mr Test Org",
+  "etag": "685897636a7c876b7e",
 	"extended_info": {
 		"campus": "seattle"
 	}
