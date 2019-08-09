@@ -53,6 +53,7 @@
 	"organization": "Test Org",
 	"manager": "Mr Test Org",
   "etag": "685897636a7c876b7e",
+  "external_id": "asdf123",
 	"extended_info": {
 		"campus": "seattle"
 	}
