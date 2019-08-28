@@ -13,7 +13,7 @@ setup(
     include_package_data=True,
     install_requires = [
         'setuptools',
-        'Django<=1.8.6',
+        'django>=1.8.19,<1.9',
         'urllib3',
         'oauth2',
         'requests-oauthlib',
